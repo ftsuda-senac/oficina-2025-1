@@ -1,0 +1,27 @@
+services:
+  auth:
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - 9090:9090
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: Abcd1234
+      #KEYCLOAK_IMPORT: /opt/keycloak/data/import/kc_realm_oficina.json
+      #JDK_JAVA_OPTIONS: -Dkeycloak.profile.feature.upload_scripts=enabled
+    networks:
+      - kc_net
+    command:
+      - start-dev
+      - --http-port=9090
+      - -v
+      #- --import-realm
+    volumes:
+      - ./data:/opt/keycloak/data
+      #- ./import:/opt/keycloak/data/import
+
+volumes:
+  kc_data:
+
+networks:
+  kc_net:
+    driver: bridge

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login com Keycloak</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    #userinfo {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+    }
+    .token {
+      font-family: "Courier New", Courier, monospace;
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Exemplo de Login com Keycloak</h1>
+  <h2>Somente Frontend JS + PKCE</h2>
+  <section id="semLogin">
+    <button id="btnLogin">Login</button>
+  </section>
+  <section id="comLogin" style="display: none;">
+    <div id="userinfo">
+        <p><strong>Usuário:</strong> <span id="username"></span></p>
+        <p><strong>E-mail:</strong> <span id="email"></span></p>
+        <p>
+        <label>Access Token</label>
+        <textarea id="accessToken" class="token" rows="10"></textarea>
+        </p>
+        <p>
+        <label>ID Token</label>
+        <textarea id="idToken" class="token" rows="10"></textarea>
+        </p>
+    </div>
+    <button id="btnLogout">Logout</button>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/keycloak-js@latest/dist/keycloak.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
